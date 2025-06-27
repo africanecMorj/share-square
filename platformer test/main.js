@@ -60,7 +60,7 @@ let tempPassword = localStorage.getItem(`currentUserPass`) || false;
 // $(`#popup`).hide();
 $(`.menu`).hide();
 
-axios.post(`http://localhost:3000/signIn`,{
+axios.post(`https://share-square-1.onrender.com/signIn`,{
   login:tempLogin,
   password:tempPassword
 })
@@ -606,7 +606,7 @@ document.addEventListener('keydown', e => {
       
     if (event.key === "Enter") {
       if (customInput.trim() !== "") {  
-        axios.get(`http://localhost:3000/download/${customInput.trim()}`,  {responseType: 'blob'})
+        axios.get(`https://share-square-1.onrender.com/download/${customInput.trim()}`,  {responseType: 'blob'})
         .then(res => {
           
             choice = 2;
@@ -678,7 +678,7 @@ document.addEventListener('keydown', e => {
       if (files != ``) {  
         awaitingTextInput = false;
        
-        axios.post(`http://localhost:3000/upload/${encodeURIComponent(currentUser)}/${encodeURIComponent(currentUserPass)}`, files , {headers: { 'Content-Type': 'multipart/form-data' }})
+        axios.post(`https://share-square-1.onrender.com/upload/${encodeURIComponent(currentUser)}/${encodeURIComponent(currentUserPass)}`, files , {headers: { 'Content-Type': 'multipart/form-data' }})
         .then(res => {
           console.log(res)
           if(res.data == `You have exceeded the limit. Await 5 minute`){
@@ -1206,7 +1206,7 @@ historyBtn.addEventListener(`click`, () => {
   logInpPass.placeholder = `Пароль`;
   logInpNick.placeholder = `Нікнейм`;
   historyContainer.style.display = `flex`;
-axios.post(`http://localhost:3000/signIn`,{
+axios.post(`https://share-square-1.onrender.com/signIn`,{
   login:currentUser,
   password:currentUserPass
 })
@@ -1253,7 +1253,7 @@ registerFetch.addEventListener(`click`, () => {
       if(password.length>7){
         if(!/\s/.test(password)){
           if(/[^a-zA-Z0-9]/.test(password)){
-            axios.post(`http://localhost:3000/registration`, {
+            axios.post(`https://share-square-1.onrender.com/registration`, {
               password:password,
               login: login
             })
@@ -1359,7 +1359,7 @@ logoutBtn.addEventListener(`click`, () => {
 
 loginFetch.addEventListener(`click`, () => {
   
-  axios.post(`http://localhost:3000/signIn`,{
+  axios.post(`https://share-square-1.onrender.com/signIn`,{
   login:logInpNick.value,
   password:logInpPass.value
 })
@@ -1814,7 +1814,7 @@ document.onclick = function(e) {
   console.log(e.target.id.substring(0, 3))
   if(e.target.id.substring(0, 3) == `del`){
     console.log(e.target.id.substring(3))
-    axios.delete(`/deleteUrl/${e.target.id.substring(3)}/${encodeURIComponent(currentUser)}/${encodeURIComponent(currentUserPass)}`)
+    axios.delete(`https://share-square-1.onrender.com/deleteUrl/${e.target.id.substring(3)}/${encodeURIComponent(currentUser)}/${encodeURIComponent(currentUserPass)}`)
     .then(res => {
             showPopup(`Файли видалено`);
     })
@@ -1822,7 +1822,7 @@ document.onclick = function(e) {
 
    if(e.target.id.substring(0, 3) == `upl`){
     console.log(e.target.id.substring(3))
-    axios.get(`http://localhost:3000/download/${e.target.id.substring(3)}`,  {responseType: 'blob'})
+    axios.get(`https://share-square-1.onrender.com/download/${e.target.id.substring(3)}`,  {responseType: 'blob'})
         .then(res => {
             const url = window.URL.createObjectURL(new Blob([res.data]));
             const link = document.createElement('a');
