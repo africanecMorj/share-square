@@ -11,7 +11,7 @@ const upload = require(path.join(__dirname, `middleware`, `fileUpload`));
 const archive = require(path.join(__dirname, `middleware`, `fileArchiver`));
 const FileModel = require(path.join(__dirname, `/middleware/fileModel`));
 const LoginModel = require(path.join(__dirname, `/middleware/loginModel`));
-const PassModel = require(path.join(__dirname, `middleware/PassModel`));
+const PassModel = require(path.join(__dirname, `middleware/passModel`));
 const archiver = require(`archiver`)
 require(`dotenv`).config();
 
