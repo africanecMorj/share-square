@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="style.css">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js' integrity='sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==' crossorigin='anonymous'></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet" >
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js' integrity='sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==' crossorigin='anonymous'></script>
+</head>
+<body>  
+<div id="startScreen">
+  <div id="startContent">
+    <p id="pressEnter">[Натисніть Enter]</p>
+    <div id="gameLogo"  ></div>
+  </div>
+</div>
+
+
+  <div id="viewport">
+    <div id="game" style="position: relative; width: 100%; height: 100vh; overflow: hidden; ">
+      <img id="background1" src="./sprites/background1.png" alt="">
+      <img id="background2" src="./sprites/background2.png" alt="">
+      <img id="background3" src="./sprites/Grassy_Clearing.webp" alt="">
+      <div id="player" style="position: absolute; "></div>
+
+      
+    </div>
+    
+  </div>
+  
+  <div class="menu" id="menu">
+      <div id="crossMark"></div>
+    <h2>Меню</h2>
+    <button id="registerBtn">Реєстрація</button>
+    <button id="loginBtn">Ввійти</button>
+    <button id="logoutBtn">Вийти</button>
+    <button id="historyBtn">Історія</button>
+    <div id="registerContainer">
+      <input type="text" id="regInpNick" placeholder="нікнейм">
+      <input type="text" id="regInpPass" placeholder="пароль">
+      <button id="register">Зареєструватись</button>
+      <button id="regClose">Скасувати</button>
+    </div>
+     <div id="loginContainer">
+      <input type="text" id="logInpNick" placeholder="нікнейм">
+      <input type="text" id="logInpPass" placeholder="пароль">
+      <button id="login">Ввійти</button>
+      <button id="logClose">Скасувати</button>
+    </div>
+    <div id="historyContainer">
+
+    </div>
+  </div>
+
+  <div id="popup"></div>
+  <audio id="type-sound" src="./sprites/btoads_kick_small.mp3" preload="auto"></audio>
+  <audio id="congrat-sound" src="./sprites/chest_item.mp3" preload="auto"></audio>
+  <audio id="fail-sound" src="./sprites/beetle_flip.mp3" preload="auto"></audio>
+  <audio id="jump-sound" src="./sprites/jump_01.mp3" preload="auto"></audio>
+  <audio id="glob-music" src="./sprites/04. Strike the Earth! (Plains of Passage).mp3" preload="auto"></audio>
+  <script src="./main.js"></script>
+</body>
+</html>

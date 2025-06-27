@@ -1,0 +1,478 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+   font-family:"Tiny5", sans-serif;
+}
+
+.obstacle {
+  position: absolute;
+}
+#finish {
+  position: absolute;
+  background-color: gold;
+  border: 2px dashed #555;
+}
+
+body{
+  background-color: black;
+}
+
+#player {
+  position: absolute;
+  width: 112px;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size:contain; 
+  image-rendering: pixelated;
+  z-index: 7;
+}
+
+#game{
+  /* background-image: url(./sprites/Grassy_Clearing.webp); */
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: 100%;
+  image-rendering: pixelated;
+    opacity: 0;
+
+}
+
+ #game {
+    /* transition: 0.1s ease; */
+  }
+
+  #game.fade-out {
+    opacity: 0;
+  }
+
+  #game.fade-in {
+    opacity: 1;
+  }
+
+  #viewport {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+#game {
+  width:1000%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  transition: 0.4s linear;
+}
+
+img{
+  height: 100vh;
+  image-rendering: pixelated;
+
+}
+
+#npc{
+  transition: 0s;
+  /* background-color: red; */
+}
+
+ #dialogOverlay{
+  width: 44%;
+  position: fixed;
+  color: white;
+  height: 30vh;
+ }
+
+ #dialogContainer{
+        width: 100vw;
+        min-height: 130px;
+        background-color: black;
+        position: absolute;
+        z-index: 300;
+      border: 2px solid #ccc;
+      display: flex;
+      opacity: 0%;
+      transition:0.25s;
+        
+    }
+    #dialog-box {
+    
+    background: black;
+      border-radius: 10px;
+      padding: 20px;
+      /* margin: 0 auto; */
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      min-height: 130px;
+      max-width: 620px;
+      color: white;
+      border-radius: 0;
+        
+    }
+
+    .dialogImage{
+        height: 174px;
+        width: 174px;
+        background-color: red;
+        background-image: url(./sprites/dialogueBard.png);
+        background-size: cover;
+        background-position: center;
+        transition: 0.25s;
+    }
+    #instruction {
+      text-align: center;
+      margin-top: 10px;
+      color: #888;
+      font-size: 0.9em;
+    }
+    #choices {
+      text-align: center;
+      margin-top: 20px;
+      z-index: 9999;
+      position: absolute;
+      /* opacity: 0%; */
+      transition:0.25s;
+      left: 20%; 
+      display: block;
+    }
+    .choice-button {
+      display: block;
+      margin: 10px auto;
+      padding: 10px 20px;
+      font-size: 1em;
+      border: 1px solid white;
+      background-color: black;
+      color: white;
+      cursor: pointer;
+      width: 200px;
+      opacity: 100%;
+      z-index: 9999;
+    }
+
+    .choice-button.selected {
+      background-color: #0056b3;
+    }
+
+    #custom-input{
+      display: none;
+      background-color: black;
+      color: white;
+      margin: 20px 3px;
+    }
+
+    .menu{
+      position: absolute;
+      z-index: 1000;
+      transform: translate(33%, -105%);
+      width: 60%;
+      height: 90vh;
+      background-color: black;
+      border: 3px solid white;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      color: white;
+    }
+
+    .menu h2{
+      margin: 40px;
+    }
+
+    .menu button{
+      color: white;
+      margin: 40px;
+      padding: 20px;
+      font-size: 15px;
+      border: none;
+      width: 100%;
+      background-color: black;
+      cursor: pointer;
+    }
+
+    .menu button:hover{
+      background-color: white;
+      color: black;
+    }
+
+
+    #crossMark{
+      background-image: url(./sprites/crossMark1.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      width: 20px;
+      height: 20px ;
+  image-rendering: pixelated;
+      position: absolute;
+      margin-left:-90%;
+      margin-top: -65%;
+      cursor: pointer;
+    }
+
+    #crossMark:hover{
+      background-image: url(./sprites/crossMark.png);
+    }
+
+    #logoutBtn{
+      display:none;
+    }
+    
+    #registerContainer{
+      display: none;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+
+    }
+
+    .menu input{
+      width: 50%;
+      /* height: 40px; */
+      margin: 20px;
+      border: none;
+      outline: none;
+      padding: 15px;
+        width: 90%;
+    }
+
+    #loginContainer{
+      display: none;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+    }
+
+      .placeholder-red::placeholder {
+       color: red;
+      }
+
+      .placeholder-gray::placeholder {
+       color: gray;
+
+      }
+
+    #tripleBar{
+      position: absolute;
+      z-index: 1000;
+      transform: translate(33%, 10%);
+      width: 50px;
+      height: 50px;
+      background-image: url(./sprites/tripleBar.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      image-rendering: pixelated;
+      filter: drop-shadow(2px 2px 10px black);
+    }
+
+    #npc1{
+      background-color: none;
+      left:47%;
+      bottom:28.5%;
+      z-index: 6;
+      background-image: url(./sprites/chestLocked.png);
+      background-position: bottom;
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 15%;
+      width: 3%;
+    }
+    #fileList{
+      bottom: 40%;
+      left: 48%;
+      z-index: 20;
+    }
+    #npcIndicator1{
+      z-index: 20;
+      position: absolute;
+      /* bottom: 20%; */
+      /* transform: translate(); */
+      /* transform: translate(100%,-180%); */
+      bottom: 40%;
+      left: 48%; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      height: 22px;
+      color: black;
+      }
+    #background2{
+      right: 3%;
+      position: relative;
+      z-index: 1;
+    }
+
+    #npc{
+      background-color: red;
+      z-index: 6;
+    }
+
+    #background1{
+      z-index: 2;
+    }
+    #background3{
+      z-index: 2;
+       right: 2.5%;
+      position: relative;
+    }
+
+    #rightWall{
+      z-index: 20;
+    }
+    #leftWall{
+      z-index: 20;
+    }
+
+    #historyContainer{
+      display: none;
+      width: 100%;
+      overflow-y: scroll;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .item{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .item button{
+      width: 40px;
+      height: 40px;
+    }
+
+     .item button:hover{
+      width: 40px;
+      height: 40px;
+       background-color: transparent;
+      color: none;
+    }
+
+    .item .delete{
+       background-image: url(./sprites/delete.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      image-rendering: pixelated;
+    }
+    .item .upload{
+       background-image: url(./sprites/upload.png);
+      background-size: contain;
+      background-repeat: no-repeat;
+      image-rendering: pixelated;
+    }
+
+
+    #startScreen {
+  position: fixed;
+  inset: 0;
+  background: black;
+  z-index: 9998;
+  overflow: hidden;
+}
+
+#startContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  font-size: 24px;
+  font-family: sans-serif;
+  z-index: 2;
+}
+
+#pressEnter {
+  animation: blink 1s infinite;
+}
+
+
+
+.curtain {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  background: black;
+  z-index: 1;
+  transition: transform 1.2s ease-in-out;
+}
+
+#leftCurtain {
+  left: 0;
+  transform: translateX(0);
+  transition: 0.25s;
+}
+
+#rightCurtain {
+  right: 0;
+  transform: translateX(0);
+  transition: 0.25s;
+}
+
+.open #leftCurtain {
+  transform: translateX(-100%);
+}
+
+.open #rightCurtain {
+  transform: translateX(100%);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+#npc{
+  left: 70%;
+  bottom: 6%;
+  height: 30%;
+  width: 3%;
+  background-color: transparent; 
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  transform: scaleX(-1);
+
+}
+
+
+    #npcIndicator{
+      z-index: 8;
+      left: 71.5%;
+  bottom: 23%;
+  color: white;
+    }
+
+#gameLogo{
+  width:100%;
+  height: 25vh;
+  background-color: red;
+  display: block;
+  position: absolute;
+  opacity: 0%;
+  z-index: 9999;
+  transition: 0;
+  /* margin-left: -40%; */
+}
+
+#popup{
+  position:absolute ;
+  z-index: 9999;
+width: 30%;
+height: 20vh;
+background-color: black;
+ border: 3px solid white;
+  transform: translate(7%, -105%);
+  color: white;
+  transition: 0.45s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0%;
+}
